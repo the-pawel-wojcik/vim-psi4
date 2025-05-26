@@ -14,17 +14,21 @@ endif
 syntax keyword psi4Keyword Energy Total Correlation
 
 " Floating point numbers
-syntax match psi4Float "\<[-+]?\d*\.\d\+\(E[-+]?\d\+\)\=\>"
+sy match psi4float "[-+]\?\d*\.\d\+\([Ee][-+]\?\d\+\)\?"
 
-" Sections (e.g., " ==> Post-Iterations <==")
-syntax region psi4Section start="^\s*=\+>\s*\(.*\)\s*<=\+\s*$" end="^\s*=\+>\s*\(.*\)\s*<=\+\s*$" keepend
+hi psi4resultPattern ctermbg=blue ctermfg=white
+hi psi4resultValue ctermbg=red ctermfg=white
+
+"" Sections (e.g., " ==> Post-Iterations <==")
+"syntax region psi4Section start="^\s*=\+>\s*\(.*\)\s*<=\+\s*$" end="^\s*=\+>\s*\(.*\)\s*<=\+\s*$" keepend
+syntax match psi4Section "^\s*=\+>\s*\(.*\)\s*<=\+\s*$"
 
 " Error messages
 syntax match psi4Error "Error:.*"
 
-"Link group
+" Link group
 hi link psi4Keyword Keyword
-hi link psi4Float Float
+hi link psi4float Constant
 hi link psi4Section Title
 hi link psi4Error Error
 
