@@ -4,7 +4,7 @@ augroup filetypedetect
 augroup END
 
 function! s:DetectPsi4FileType()
-    let filetype = mypsi4#DetectFileType(expand("<afile>:p"))
+    let filetype = psi4#DetectFileType(expand("<afile>:p"))
     if !empty(filetype)
         set filetype=psi4output
     endif

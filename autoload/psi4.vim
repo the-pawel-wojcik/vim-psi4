@@ -1,10 +1,10 @@
-function! mypsi4#DetectFileType(filename)
+function! psi4#DetectFileType(filename)
   " Read the first few lines of the file
   let l:first_lines = readfile(a:filename, '', 5)
 
   " Check for Psi4 output file markers in the first few lines
   for l:line in l:first_lines
-    if l:line =~ '^\s*Psi4\s*.*$'
+    if l:line =~ '^\s*Psi4: An Open-Source Ab Initio Electronic Structure Package$'
       return 'psi4output'
     endif
   endfor
